@@ -7,7 +7,8 @@
     "variables",
     "utilities",
 
-    // * OPTIONAL * //
+    // * OPTIONAL MODULES * //
+    // ONLY import what is needed for the website to function
     "node_modules/bootstrap/scss/root",
     "node_modules/bootstrap/scss/reboot",
     "node_modules/bootstrap/scss/type",
@@ -40,5 +41,5 @@
     "node_modules/bootstrap/scss/carousel",
     "node_modules/bootstrap/scss/print";
 
-// Bootstrap ALL
+// BOOTSTRAP ALL - ONLY use for testing purposes
 //@import "node_modules/bootstrap/scss/bootstrap";

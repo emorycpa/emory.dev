@@ -16,6 +16,7 @@ git push -u origin master
 ```
 7. Open your project in Visual Studio Code.
 8. Go to the Source Control tab and stage, commit, and push all the files to your new repository.
+9. Update README.md for the new repository.
 
 ## Getting Started
 

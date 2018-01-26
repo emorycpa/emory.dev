@@ -7,11 +7,11 @@
 5. Open the project you downloaded and Git Bash inside the base folder.
 5. Follow the instructions to initialize the new repository.
 ```
-echo "# YOURPROJECT" >> README.md
+echo "# new.project.name" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
-git remote add origin https://github.com/emorycpa/NEW-PROJECT.git
+git remote add origin https://github.com/emorycpa/new.project.name.git
 git push -u origin master
 ```
 7. Open your project in Visual Studio Code.

@@ -1,6 +1,21 @@
 # Emory University - Dev Starter Kit
 
-Fork this project to use this starter kit for creating website and templates quickly.
+1. Download this project to your local machine.
+2. Make a new repository on the EmoryCPA github account.
+3. Add yourself as a collaborator: Settings > Collaborators > you@emory.edu
+4. Check your email for the collaboration invite and accept.
+5. Open the project you downloaded and Git Bash inside the base folder.
+5. Follow the instructions to initialize the new repository.
+```
+echo "# YOURPROJECT" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/emorycpa/NEW-PROJECT.git
+git push -u origin master
+```
+7. Open your project in Visual Studio Code.
+8. Go to the Source Control tab and stage, commit, and push all the files to your new repository.
 
 ## Getting Started
 

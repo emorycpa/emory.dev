@@ -10,6 +10,15 @@ Be sure to have the following installed:
 * [Git](https://git-scm.com/downloads)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 
+## Built With
+
+If you are not already, familiarize yourself with the following:
+
+* [Boostrap 4](https://getbootstrap.com/) - Web framework
+* [Gulp](https://gulpjs.com/) - Workflow automation
+* [SASS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) - CSS preprocessor
+* [Nunjucks](https://mozilla.github.io/nunjucks/) - Javascript templating language
+
 ## Getting Started
 
 1. Download this project to your local machine.
@@ -49,13 +58,6 @@ This will launch a page in your default browser on localhost:3000.
 ## Deployment
 
 All compiled files will be found under the 'build' directory.
-
-## Built With
-
-* [Boostrap 4](https://getbootstrap.com/) - Web framework
-* [Gulp](https://gulpjs.com/) - Workflow automation
-* [SASS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) - CSS preprocessor
-* [Nunjucks](https://mozilla.github.io/nunjucks/) - Javascript templating language
 
 ## Authors
 

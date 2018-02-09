@@ -17,7 +17,7 @@ If you are not already, familiarize yourself with the following:
 * [Boostrap 4](https://getbootstrap.com/) - Web framework
 * [Gulp](https://gulpjs.com/) - Workflow automation
 * [SASS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) - CSS preprocessor
-* [Nunjucks](https://mozilla.github.io/nunjucks/) - Javascript templating language
+* [Nunjucks](https://mozilla.github.io/nunjucks/) - Javascript-based HTML templating language
 
 ## Getting Started
 

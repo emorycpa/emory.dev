@@ -1,5 +1,17 @@
 # Emory University - Dev Starter Kit
 
+These instructions will get you a copy of the starer kit up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+## Prerequisites
+
+Be sure to have the following installed:
+
+```
+Node.js
+```
+
+## Getting Started
+
 1. Download this project to your local machine.
 2. Make a new repository on the EmoryCPA github account.
 3. Add yourself as a collaborator: Settings > Collaborators > you@emory.edu
@@ -18,19 +30,7 @@ git push -u origin master
 8. Go to the Source Control tab and stage, commit, and push all the files to your new repository.
 9. Update README.md for the new repository.
 
-## Getting Started
-
-These instructions will get you a copy of the starer kit up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
-
-### Prerequisites
-
-Be sure to have the following installed:
-
-```
-Node.js
-```
-
-### Installing
+## Installing node_modules and launching Local Host
 
 Once you have cloned this repository, open the command line and run:
 

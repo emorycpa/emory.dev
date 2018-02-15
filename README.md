@@ -59,6 +59,24 @@ This will launch a page in your default browser on localhost:3000.
 
 All compiled files will be found under the 'build' directory.
 
+### Deploy Static Pages
+
+To create a flat page that contains all scripts and styles, use the Gulp plugin *Gulp-Inline-Source*. Run task:
+
+```
+gulp inlinesource
+```
+
+This will create the new folder `build/inlined` which contains the inlined version of each page in your project.
+
+In order to determine which scripts and styles are inlined and where, be sure to simply add 'inline' to the script or style. Example:
+
+```
+<style rel="stylesheet" href="..." inline>
+```
+
+This will tell the Gulp-Inline-Source plugin to inline the content right there instead of linking to it remotely.
+
 ## Authors
 
 * **Bryce Roberts** - *Initialization* - [bryce.leitner.roberts@gmail.com](mailto:bryce.leitner.roberts@gmail.com)

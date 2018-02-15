@@ -16,6 +16,7 @@ var gulp            = require('gulp'),
     nunjucks        = require('gulp-nunjucks-render'),
     tap             = require('gulp-tap'),
     mustache        = require('gulp-mustache'),
+    inlineSource    = require('gulp-inline-source'),
     ts              = require('gulp-typescript');
 
 //Load Configuration 
@@ -186,3 +187,10 @@ gulp.task('watch:build', ['build'], function(){
 });
 
 gulp.task('watch:serve', ['build', 'serve', 'watch:build']);
+
+// Inline source
+gulp.task('inlinesource', function () {
+  return gulp.src('./build/pages/*.html')
+      .pipe(inlinesource())
+      .pipe(gulp.dest('./build/pages/inlined'));
+});

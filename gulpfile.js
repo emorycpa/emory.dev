@@ -17,6 +17,7 @@ var gulp            = require('gulp'),
     tap             = require('gulp-tap'),
     mustache        = require('gulp-mustache'),
     inlineSource    = require('gulp-inline-source'),
+    htmlmin         = require('gulp-htmlmin'),
     ts              = require('gulp-typescript');
 
 //Load Configuration 
@@ -188,9 +189,18 @@ gulp.task('watch:build', ['build'], function(){
 
 gulp.task('watch:serve', ['build', 'serve', 'watch:build']);
 
-// Inline source
+// Inline scripts/styles
 gulp.task('inlinesource', function () {
   return gulp.src('./build/pages/*.html')
       .pipe(inlinesource())
       .pipe(gulp.dest('./build/pages/inlined'));
+});
+
+// Inline scripts/styles and then minify HTML
+gulp.task('minify', function() {
+  return gulp.src('./build/pages/*.html')
+    .pipe(inlinesource())
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({removeComments: true}))
+    .pipe(gulp.dest('./build/pages/minified'));
 });

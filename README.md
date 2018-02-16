@@ -61,13 +61,13 @@ All compiled files will be found under the 'build' directory.
 
 ### Deploy Static Pages
 
-To create a flat page that contains all scripts and styles, use the Gulp plugin *Gulp-Inline-Source*. Run task:
+To create a flat page that contains all scripts and styles, run task:
 
 ```
-gulp inlinesource
+gulp minify
 ```
 
-This will create the new folder `build/inlined` which contains the inlined version of each page in your project.
+This will create the new folder `build/minified` which contains the inlined and minified version of each page in your project. All whitespaces and comments are removed so you end up with only what is needed to stage a static page.
 
 In order to determine which scripts and styles are inlined and where, be sure to simply add 'inline' to the script or style. Example:
 

@@ -200,7 +200,6 @@ gulp.task('inlinesource', function () {
 gulp.task('minify', function() {
   return gulp.src('./build/pages/*.html')
     .pipe(inlinesource())
-    .pipe(htmlmin({collapseWhitespace: true}))
-    .pipe(htmlmin({removeComments: true}))
+    .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('./build/pages/minified'));
 });

@@ -8,14 +8,12 @@ var gulp            = require('gulp'),
     concat          = require('gulp-concat'),
     cssmin          = require('gulp-cssmin'),
     gulpif          = require('gulp-if'),
-    less            = require('gulp-less'),
     postcss         = require('gulp-postcss'),
     rename          = require('gulp-rename'),
     sass            = require('gulp-sass'),
     uglify          = require('gulp-uglify'),
     nunjucks        = require('gulp-nunjucks-render'),
     tap             = require('gulp-tap'),
-    mustache        = require('gulp-mustache'),
     inlineSource    = require('gulp-inline-source'),
     htmlmin         = require('gulp-htmlmin'),
     ts              = require('gulp-typescript');
@@ -70,8 +68,6 @@ gulp.task('build:css', ['build:clean:css'], function(){
           .on("error", handleError)
           .pipe(gulpif(getConfig().css.cssPreprocessor === 'scss', sass()))
           .on("error", handleError)
-          .pipe(gulpif(getConfig().css.cssPreprocessor === 'less', less()))
-          .on("error", handleError)
           .pipe(postcss([autoprefixer]))
           .pipe(gulpif(getConfig().css.minizine, cssmin()))
           .pipe(rename({suffix: getConfig().css.suffix}))
@@ -109,14 +105,6 @@ gulp.task('build:html', ['build:clean:html'], function(){
           .pipe(gulpif(getConfig().html.templateEngine === 'njk', nunjucks({
             "path": [getConfig().html.templates]
           })))
-          .on("error", handleError)
-          .pipe(gulpif(getConfig().html.templateEngine === 'mustache', tap(
-            function(file, t) {
-              var dataFileName = path.basename(file.path, path.extname(file.path)) + '.json';
-              var dataFilePath =  path.join(path.dirname(file.path), dataFileName);
-              return t.through(mustache, [require(dataFilePath)])
-            }
-          )))
           .on("error", handleError)
           .pipe(rename({suffix: getConfig().html.suffix}))
           .pipe(rename({extname: getConfig().html.extension}))

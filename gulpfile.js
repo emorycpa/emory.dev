@@ -187,7 +187,7 @@ gulp.task('inlinesource', function () {
 // Inline scripts/styles and then minify HTML
 gulp.task('minify', function() {
   return gulp.src('./build/pages/*.html')
-    .pipe(inlinesource())
+    .pipe(inlineSource())
     .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
     .pipe(gulp.dest('./build/pages/minified'));
 });

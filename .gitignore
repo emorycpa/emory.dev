@@ -60,6 +60,9 @@ typings/
 # default build directory
 build/
 
+# if using Github Pages docs folder
+docs/
+
 # No compressed files!
 *.z
 *.zip

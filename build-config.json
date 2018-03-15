@@ -21,7 +21,7 @@
         "suffix" : "", 
         "source": "./src/njk/pages/**/*.+(njk)",
         "templates": "./src/njk/templates",  
-        "build" : "./build/pages", 
+        "build" : "./build", 
         "templateEngine" : "njk",
         "extension": ".html",
         "clean" : true

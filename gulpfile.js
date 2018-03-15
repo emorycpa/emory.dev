@@ -121,7 +121,7 @@ gulp.task('build:html', ['build:clean:html'], function () {
 });
 
 gulp.task('build:clean:html', function () {
-  return gulp.src(normalizePath(getConfig().html.build + '*'))
+  return gulp.src(normalizePath(getConfig().html.build + '*' + getConfig().html.extension))
     .pipe(gulpif(getConfig().html.clean, clean()));
 });
 

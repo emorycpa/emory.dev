@@ -187,18 +187,18 @@ gulp.task('watch:serve', ['build', 'serve', 'watch:build']);
 
 // Inline scripts/styles
 gulp.task('inlinesource', function () {
-  return gulp.src('./build/*.html')
+  return gulp.src('./docs/*.html')
     .pipe(inlinesource())
-    .pipe(gulp.dest('./build/inlined'));
+    .pipe(gulp.dest('./docs/inlined'));
 });
 
 // Inline scripts/styles and then minify HTML
 gulp.task('minify', function () {
-  return gulp.src('./build/*.html')
+  return gulp.src('./docs/*.html')
     .pipe(inlineSource())
     .pipe(htmlmin({
       collapseWhitespace: true,
       removeComments: true
     }))
-    .pipe(gulp.dest('./build/minified'));
+    .pipe(gulp.dest('./docs/minified'));
 });

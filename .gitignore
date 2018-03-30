@@ -60,7 +60,7 @@ typings/
 # default build directory
 build/
 
-# if using Github Pages docs folder
+# Remove to upload to docs/ on Github for demo purposes
 docs/
 
 # No compressed files!

@@ -2,7 +2,7 @@
     "css" : {
         "suffix" : "", 
         "source": "./src/scss/*.scss", 
-        "build" : "./build/_includes/css", 
+        "build" : "./docs/includes/css", 
         "cssPreprocessor" : "scss", 
         "minizine" : false, 
         "concat" : false,
@@ -11,7 +11,7 @@
     "js" : {
         "suffix" : "", 
         "source": "./src/js/**/*.+(js)", 
-        "build" : "./build/_includes/js", 
+        "build" : "./docs/includes/js", 
         "jsPreprocessor" : false, 
         "minizine" : false, 
         "concat" : false,
@@ -21,7 +21,7 @@
         "suffix" : "", 
         "source": "./src/njk/pages/**/*.+(njk)",
         "templates": "./src/njk/templates",  
-        "build" : "./build/", 
+        "build" : "./docs/", 
         "templateEngine" : "njk",
         "extension": ".html",
         "clean" : true
@@ -30,16 +30,16 @@
         {
             "task" : "images",
             "source": "./src/images/**/*.*", 
-            "build" : "./build/_includes/images/" 
+            "build" : "./docs/includes/images/" 
         },
         {
             "task" : "fonts",
             "source": "./src/fonts/**/*.*", 
-            "build" : "./build/_includes/fonts/" 
+            "build" : "./docs/includes/fonts/" 
         }
     ],
     "browserSync" : {
         "enabled" : true,
-        "directory" : "./build/"
+        "directory" : "./docs/"
     }
 }

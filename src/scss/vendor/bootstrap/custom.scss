@@ -1,45 +1,42 @@
-@import 
-    // * REQUIRED * //
-    "node_modules/bootstrap/scss/functions",
-    "node_modules/bootstrap/scss/mixins",
+// REQUIRED
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/mixins";
 
-    // * CUSTOMIZED * //
-    "variables",
-    "utilities",
+// Customized components
+@import "variables";
+@import "utilities";
 
-    // * OPTIONAL MODULES * //
-    // ONLY import what is needed for the website to function
-    "node_modules/bootstrap/scss/root",
-    "node_modules/bootstrap/scss/reboot",
-    "node_modules/bootstrap/scss/type",
-    "node_modules/bootstrap/scss/images",
-    "node_modules/bootstrap/scss/code",
-    "node_modules/bootstrap/scss/grid",
-    "node_modules/bootstrap/scss/tables",
-    "node_modules/bootstrap/scss/forms",
-    "node_modules/bootstrap/scss/buttons",
-    "node_modules/bootstrap/scss/transitions",
-    "node_modules/bootstrap/scss/dropdown",
-    "node_modules/bootstrap/scss/button-group",
-    "node_modules/bootstrap/scss/input-group",
-    "node_modules/bootstrap/scss/custom-forms",
-    "node_modules/bootstrap/scss/nav",
-    "node_modules/bootstrap/scss/navbar",
-    "node_modules/bootstrap/scss/card",
-    "node_modules/bootstrap/scss/breadcrumb",
-    "node_modules/bootstrap/scss/pagination",
-    "node_modules/bootstrap/scss/badge",
-    "node_modules/bootstrap/scss/jumbotron",
-    "node_modules/bootstrap/scss/alert",
-    "node_modules/bootstrap/scss/progress",
-    "node_modules/bootstrap/scss/media",
-    "node_modules/bootstrap/scss/list-group",
-    "node_modules/bootstrap/scss/close",
-    "node_modules/bootstrap/scss/modal",
-    "node_modules/bootstrap/scss/tooltip",
-    "node_modules/bootstrap/scss/popover",
-    "node_modules/bootstrap/scss/carousel",
-    "node_modules/bootstrap/scss/print";
+@import "node_modules/bootstrap/scss/alert";
+@import "node_modules/bootstrap/scss/badge";
+@import "node_modules/bootstrap/scss/breadcrumb";
+@import "node_modules/bootstrap/scss/button-group";
+@import "node_modules/bootstrap/scss/buttons";
+@import "node_modules/bootstrap/scss/card";
+@import "node_modules/bootstrap/scss/carousel";
+@import "node_modules/bootstrap/scss/close";
+@import "node_modules/bootstrap/scss/code";
+@import "node_modules/bootstrap/scss/custom-forms";
+@import "node_modules/bootstrap/scss/dropdown";
+@import "node_modules/bootstrap/scss/forms";
+@import "node_modules/bootstrap/scss/grid";
+@import "node_modules/bootstrap/scss/images";
+@import "node_modules/bootstrap/scss/input-group";
+@import "node_modules/bootstrap/scss/jumbotron";
+@import "node_modules/bootstrap/scss/list-group";
+@import "node_modules/bootstrap/scss/media";
+@import "node_modules/bootstrap/scss/modal";
+@import "node_modules/bootstrap/scss/nav";
+@import "node_modules/bootstrap/scss/navbar";
+@import "node_modules/bootstrap/scss/pagination";
+@import "node_modules/bootstrap/scss/popover";
+@import "node_modules/bootstrap/scss/print";
+@import "node_modules/bootstrap/scss/progress";
+@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/root";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/tooltip";
+@import "node_modules/bootstrap/scss/transitions";
+@import "node_modules/bootstrap/scss/type";
 
 // BOOTSTRAP ALL - ONLY use for testing purposes
 //@import "node_modules/bootstrap/scss/bootstrap";

@@ -60,9 +60,6 @@ typings/
 # default build directory
 build/
 
-# Remove to upload to docs/ on Github for demo purposes
-docs/
-
 # No compressed files!
 *.z
 *.zip

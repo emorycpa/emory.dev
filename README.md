@@ -39,6 +39,47 @@ git push -u origin master
 8. Go to the Source Control tab and stage, commit, and push all the files to your new repository.
 9. Update README.md for the new repository.
 
+## Navigating the template
+
+All development, code, and markup modification should occur inside the `src/` directory.
+
+Source files for vector and raster graphics, PDFs, and other guides should be placed inside the `design-documents/` directory.
+
+### src/ directory
+
+* `fonts/` - Webfonts
+* `js/` - Javascript
+* `njk/` - Nunjucks (HTML)
+* `scss/` - SASS (CSS)
+
+#### njk/ directory - Understanding the template parts
+
+Inside `njk/`:
+
+* `pages/` - All generic page layouts and types
+* `templates/` - Small bits of markup that are put together to form entire pages
+
+Inside the `templates/` directory is the `layout.njk` file. This determines general structure of every page.
+
+A majority of the development will occur inside the `templates/partials/` directory. By default, several generic folders and files already exist to give a headstart. This structure can be changed to accommodate the project's needs, but consistency among all Emory project templates is important.
+
+Inside `templates/partials/`:
+
+* `global/` - Components that occur across every webpage such as the header and footer
+* `snippet/` - Small blocks of standalone markup, such as blockquotes or lists
+* `component/` - Complete items such as Carousels or Modals which may contain several Snippets
+* `section/` - Large blocks of content that builds out a section of a page which may contain several Components or Snippets
+
+#### scss/ directory - Understanding the SASS structure
+
+Inside `scss/`:
+
+* `abstracts/` - SASS functions, mixins, variables, animations, and font declarations
+* `base/` - Rules that apply sitewide. Accessibility, generic helper classes, typography styles, WYSIWYG styles
+* `components/` - Individual component styles such as headers, footers, and custom widgets
+* `vendor/` - Third-party styles
+* site.scss - Imports all other styles into one stylesheet
+
 ## Installing node_modules and launching Local Host
 
 Once you have cloned this repository, open the command line and run:
@@ -57,7 +98,7 @@ This will launch a page in your default browser on localhost:3000.
 
 ## Deployment
 
-All compiled files will be found under the 'docs' directory.
+All compiled files (HTML, CSS, JS, fonts, images, etc.) will be found under the `docs/` directory.
 
 ## Authors
 

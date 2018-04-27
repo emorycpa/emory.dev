@@ -4,20 +4,23 @@
     <h3>Heading 3</h3>
     <p>Sometimes WYSIWYG styles have a <em>more or less distinct look and feel</em> than <a href="#">generic text across the website</a>, and this can be used to reflect those styles.</p>
     <h4>Heading 4</h4>
+    <p>WYSIWYG content should never contain <code>&lt;h1&gt;</code>.</p>
     <hr>
     <div class="row">
         <div class="col-md-6">
             <h5>Heading 5</h5>
             <strong>Unordered List:</strong>
-            {% include "partials/snippet/list-unordered.njk" %}
+            {% include "partials/wysiwyg/list-unordered.njk" %}
         </div>
         <div class="col-md-6">
             <h5>Heading 5</h5>
             <strong>Ordered List:</strong>
-            {% include "partials/snippet/list-ordered.njk" %}
+            {% include "partials/wysiwyg/list-ordered.njk" %}
         </div>
     </div>
     <h6>Heading 6</h6>
-    <strong>Short Blockquote:</strong>
-    {% include "partials/snippet/blockquote-short.njk" %}
+    <strong>Blockquote:</strong>
+    <blockquote>
+        <p>{% include "partials/wysiwyg/sentence-md.njk" %} - John Smith</p>
+    </blockquote>
 </div><!-- .wysiwyg -->

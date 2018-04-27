@@ -57,30 +57,12 @@ This will launch a page in your default browser on localhost:3000.
 
 ## Deployment
 
-All compiled files will be found under the 'build' directory.
-
-### Deploy Static Pages
-
-To create a flat page that contains all scripts and styles, run task:
-
-```
-gulp minify
-```
-
-This will create the new folder `build/minified` which contains the inlined and minified version of each page in your project. All whitespaces and comments are removed so you end up with only what is needed to stage a static page.
-
-In order to determine which scripts and styles are inlined and where, be sure to simply add 'inline' to the script or style. Example:
-
-```
-<style rel="stylesheet" href="..." inline>
-```
-
-This will tell the Gulp-Inline-Source plugin to inline the content right there instead of linking to it remotely.
+All compiled files will be found under the 'docs' directory.
 
 ## Authors
 
 * **Bryce Roberts** - *Initialization* - [bryce.leitner.roberts@gmail.com](mailto:bryce.leitner.roberts@gmail.com)
-* **Kayla Pratt** - *Front-end development* - [kaylapratt.com](http://kaylapratt.com)
+* **Kayla Pratt** - *Front-end templatizing* - [kaylapratt.com](http://kaylapratt.com)
 
 See also the list of [contributors](https://github.com/emorycpa/emory.dev/graphs/contributors) who participated in this project.
 

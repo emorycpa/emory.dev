@@ -15,8 +15,6 @@ var
   uglify = require('gulp-uglify'),
   nunjucks = require('gulp-nunjucks-render'),
   tap = require('gulp-tap'),
-  inlineSource = require('gulp-inline-source'),
-  htmlmin = require('gulp-htmlmin'),
   ts = require('gulp-typescript');
 
 //Load Configuration 
@@ -184,21 +182,3 @@ gulp.task('watch:build', ['build'], function () {
 });
 
 gulp.task('watch:serve', ['build', 'serve', 'watch:build']);
-
-// Inline scripts/styles
-gulp.task('inlinesource', function () {
-  return gulp.src('./docs/*.html')
-    .pipe(inlinesource())
-    .pipe(gulp.dest('./docs/inlined'));
-});
-
-// Inline scripts/styles and then minify HTML
-gulp.task('minify', function () {
-  return gulp.src('./docs/*.html')
-    .pipe(inlineSource())
-    .pipe(htmlmin({
-      collapseWhitespace: true,
-      removeComments: true
-    }))
-    .pipe(gulp.dest('./docs/minified'));
-});

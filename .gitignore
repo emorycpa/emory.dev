@@ -57,9 +57,6 @@ typings/
 # dotenv environment variables file
 .env
 
-# default build directory
-build/
-
 # Remove this to upload to docs/ on Github for demo purposes
 docs/
 
@@ -73,7 +70,3 @@ docs/
 
 #MacOS X
 .DS_Store
-
-# We aren't using LESS or MUSTACHE
-src/less
-src/mustache

@@ -16,7 +16,7 @@ If you are not already, familiarize yourself with the following:
 
 * [Boostrap 4](https://getbootstrap.com/) - Web framework
 * [Gulp](https://gulpjs.com/) - Workflow automation
-* [SASS](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) - CSS preprocessor
+* [Sass](http://sass-lang.com/documentation/file.SCSS_FOR_SASS_USERS.html) - CSS preprocessor
 * [Nunjucks](https://mozilla.github.io/nunjucks/) - Javascript-based HTML templating language
 
 ## Getting Started
@@ -43,14 +43,14 @@ git push -u origin master
 
 All development, code, and markup modification should occur inside the `src/` directory. Source files for vector and raster graphics, PDFs, and other guides should be placed inside the `design-documents/` directory.
 
-### src/ directory
+Inside the `src/` directory:
 
 * `fonts/` - Webfonts
 * `js/` - Javascript
 * `njk/` - Nunjucks (HTML)
 * `scss/` - Sass (CSS)
 
-#### Understanding the template parts
+### Understanding the template parts
 
 Inside the `njk/` directory:
 
@@ -69,7 +69,7 @@ Inside `templates/partials/`:
 * `section/` - Large blocks of content that builds out a section of a page which may contain several Components or Snippets
 * `wysiwyg/` - Small bits of placeholder markup used specifically for populating generic content into WYSIWYG areas in the template
 
-#### Understanding the SASS structure
+### Understanding the SASS structure
 
 Inside the `scss/` directory:
 

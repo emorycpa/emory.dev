@@ -50,7 +50,7 @@ Source files for vector and raster graphics, PDFs, and other guides should be pl
 * `fonts/` - Webfonts
 * `js/` - Javascript
 * `njk/` - Nunjucks (HTML)
-* `scss/` - SASS (CSS)
+* `scss/` - Sass (CSS)
 
 #### njk/ directory - Understanding the template parts
 
@@ -69,6 +69,7 @@ Inside `templates/partials/`:
 * `snippet/` - Small blocks of standalone markup, such as blockquotes or lists
 * `component/` - Complete items such as Carousels or Modals which may contain several Snippets
 * `section/` - Large blocks of content that builds out a section of a page which may contain several Components or Snippets
+* `wysiwyg/` - Small bits of placeholder markup used specifically for populating generic content into WYSIWYG areas in the template
 
 #### scss/ directory - Understanding the SASS structure
 

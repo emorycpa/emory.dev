@@ -41,9 +41,7 @@ git push -u origin master
 
 ## Navigating the template
 
-All development, code, and markup modification should occur inside the `src/` directory.
-
-Source files for vector and raster graphics, PDFs, and other guides should be placed inside the `design-documents/` directory.
+All development, code, and markup modification should occur inside the `src/` directory. Source files for vector and raster graphics, PDFs, and other guides should be placed inside the `design-documents/` directory.
 
 ### src/ directory
 
@@ -52,14 +50,14 @@ Source files for vector and raster graphics, PDFs, and other guides should be pl
 * `njk/` - Nunjucks (HTML)
 * `scss/` - Sass (CSS)
 
-#### njk/ directory - Understanding the template parts
+#### Understanding the template parts
 
-Inside `njk/`:
+Inside the `njk/` directory:
 
 * `pages/` - All generic page layouts and types
 * `templates/` - Small bits of markup that are put together to form entire pages
 
-Inside the `templates/` directory is the `layout.njk` file. This determines general structure of every page.
+Inside the `templates/` directory is the *layout.njk* file. This determines general structure of every page.
 
 A majority of the development will occur inside the `templates/partials/` directory. By default, several generic folders and files already exist to give a headstart. This structure can be changed to accommodate the project's needs, but consistency among all Emory project templates is important.
 
@@ -71,15 +69,15 @@ Inside `templates/partials/`:
 * `section/` - Large blocks of content that builds out a section of a page which may contain several Components or Snippets
 * `wysiwyg/` - Small bits of placeholder markup used specifically for populating generic content into WYSIWYG areas in the template
 
-#### scss/ directory - Understanding the SASS structure
+#### Understanding the SASS structure
 
-Inside `scss/`:
+Inside the `scss/` directory:
 
-* `abstracts/` - SASS functions, mixins, variables, animations, and font declarations
-* `base/` - Rules that apply sitewide. Accessibility, generic helper classes, typography styles, WYSIWYG styles
-* `components/` - Individual component styles such as headers, footers, and custom widgets
-* `vendor/` - Third-party styles
-* site.scss - Imports all other styles into one stylesheet
+* `abstracts/` - Sass functions, mixins, variables, animations, and font declarations
+* `base/` - Rules that apply sitewide. Accessibility, custom helper classes, typography, WYSIWYG
+* `components/` - Individual component rules for headers, footers, and custom widgets. Add new components as needed
+* `vendor/` - Third-party stylesheets
+* *site.scss* - Imports all other styles into one stylesheet
 
 ## Installing node_modules and launching Local Host
 

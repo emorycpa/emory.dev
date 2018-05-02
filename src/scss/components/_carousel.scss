@@ -25,6 +25,11 @@
         }
     }
 
+    .carousel-control-next:focus .carousel-control-next-icon,
+    .carousel-control-prev:focus .carousel-control-prev-icon {
+        outline: 2px solid $sky-blue;
+    }
+
     // Hide position of pause/resume button
     .carousel-pause-button {
         position: absolute;

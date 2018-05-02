@@ -13,4 +13,11 @@
         font-style:italic;
         margin-left:$grid-gutter-width;
     }
+    a {
+        text-decoration:underline; // Accessibility
+        &:hover,
+        &:focus {
+            text-decoration:none;
+        }
+    }
 }

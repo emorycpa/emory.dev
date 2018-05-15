@@ -1,6 +1,6 @@
 {
   "name": "emory.edu.dev",
-  "version": "1.1.9",
+  "version": "2.0.0",
   "description": "Front-end framework for Emory University website",
   "main": "gulpfile.js",
   "dependencies": {
@@ -8,7 +8,7 @@
     "bootstrap": "^4.1.0",
     "browser-sync": "^2.23.6",
     "chalk": "^2.3.1",
-    "gulp": "3.9.1",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-clean": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",

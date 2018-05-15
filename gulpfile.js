@@ -61,7 +61,58 @@ function logFileChange(event) {
   logging('File ' + event.path + ' was ' + event.type + ', running tasks...');
 }
 
-gulp.task('build:css', ['build:clean:css'], function () {
+GulpFunctions = function(){
+    this.fn = {};
+    this.dependencies = {};
+    return this;
+};
+
+GulpFunctions.prototype.register = function(name, dependencies, fn){
+    this.fn[name] = fn;
+    this.dependencies[name] = dependencies;
+    //Check if just dependecies setup (no function body)
+    if(!(typeof fn === 'function')){
+      if(gulp.series) {
+        gulp.task(name, gulp.series(dependencies, function(){}));
+      } else {
+        gulp.task(name, dependencies, function(){});
+      }
+      
+      return;
+    }
+    if(!(Array.isArray(dependencies))){
+      gulp.task(name, fn);
+      return;
+    }
+    //Ducktype for 4.x
+    if(gulp.series) {
+        //Setup old behaviors
+      gulp.task(name, gulp.series(dependencies, fn));
+    } else {
+      gulp.task(name, dependencies, fn)
+    }
+};
+
+var gulpFunctions = new GulpFunctions();
+
+//Build dynamic clean functions
+gulpFunctions.register('build:clean:css', null, function () {
+  return gulp.src(normalizePath(getConfig().css.build + '*'))
+    .pipe(gulpif(getConfig().css.clean, clean()));
+});
+
+gulpFunctions.register('build:clean:js', null, function () {
+  return gulp.src(normalizePath(getConfig().js.build + '*'))
+    .pipe(gulpif(getConfig().js.clean, clean()));
+});
+
+gulpFunctions.register('build:clean:html', null, function () {
+  return gulp.src(normalizePath(getConfig().html.build + '*' + getConfig().html.extension))
+    .pipe(gulpif(getConfig().html.clean, clean()));
+});
+
+//Build dynamic functions
+gulpFunctions.register('build:css', ['build:clean:css'], function () {
   return gulp.src(normalizePath(getConfig().css.source))
     .on("error", handleError)
     .pipe(gulpif(getConfig().css.cssPreprocessor === 'scss', sass()))
@@ -76,12 +127,7 @@ gulp.task('build:css', ['build:clean:css'], function () {
     .on("error", handleError);
 });
 
-gulp.task('build:clean:css', function () {
-  return gulp.src(normalizePath(getConfig().css.build + '*'))
-    .pipe(gulpif(getConfig().css.clean, clean()));
-});
-
-gulp.task('build:js', ['build:clean:js'], function () {
+gulpFunctions.register('build:js', ['build:clean:js'], function () {
   return gulp.src(normalizePath(getConfig().js.source))
     .on("error", handleError)
     .pipe(gulpif(getConfig().js.jsPreprocessor === 'ts', ts()))
@@ -95,12 +141,7 @@ gulp.task('build:js', ['build:clean:js'], function () {
     .on("error", handleError);
 });
 
-gulp.task('build:clean:js', function () {
-  return gulp.src(normalizePath(getConfig().js.build + '*'))
-    .pipe(gulpif(getConfig().js.clean, clean()));
-})
-
-gulp.task('build:html', ['build:clean:html'], function () {
+gulpFunctions.register('build:html', ['build:clean:html'], function () {
 
   return gulp.src(normalizePath(getConfig().html.source))
     .on("error", handleError)
@@ -118,20 +159,16 @@ gulp.task('build:html', ['build:clean:html'], function () {
     .on("error", handleError);
 });
 
-gulp.task('build:clean:html', function () {
-  return gulp.src(normalizePath(getConfig().html.build + '*' + getConfig().html.extension))
-    .pipe(gulpif(getConfig().html.clean, clean()));
-});
-
+// Setup static files
 getConfig().static.forEach(function (staticResource) {
 
-  gulp.task('build:clean:' + staticResource.task, function () {
+  gulpFunctions.register('build:clean:' + staticResource.task, null, function () {
     return gulp.src(normalizePath(staticResource.build + '*'))
       .pipe(clean());
   });
 
 
-  gulp.task('build:' + staticResource.task, ['build:clean:' + staticResource.task], function () {
+  gulpFunctions.register('build:' + staticResource.task, ['build:clean:' + staticResource.task], function () {
     return gulp.src(normalizePath(staticResource.source))
       .on("error", handleError)
       .pipe(gulp.dest(normalizePath(staticResource.build)))
@@ -140,12 +177,12 @@ getConfig().static.forEach(function (staticResource) {
   buildtasks.push('build:' + staticResource.task);
 });
 
-gulp.task('build', buildtasks, function () {
+gulpFunctions.register('build', buildtasks, function () {
   logging("Build done: " + new Date());
   return gulp.src(normalizePath(getConfig().browserSync.directory));
 });
 
-gulp.task('serve', ['build'], function () {
+gulpFunctions.register('serve', ['build'], function () {
   if (getConfig().browserSync.enabled) {
     browserSync.init({
       server: {
@@ -156,19 +193,19 @@ gulp.task('serve', ['build'], function () {
   }
 });
 
-gulp.task('serve:reload', function reload(done) {
+gulpFunctions.register('serve:reload', function reload(done) {
   browserSync.reload();
   done();
 });
 
 buildtasks.forEach(function (taskName) {
-  gulp.task('serve:reload:' + taskName, [taskName], function (done) {
+  gulpFunctions.register('serve:reload:' + taskName, [taskName], function (done) {
     browserSync.reload();
     done();
   })
 });
 
-gulp.task('watch:build', ['build'], function () {
+gulpFunctions.register('watch:build', ['build'], function () {
   gulp.watch(normalizePath(getConfig().css.source), ['serve:reload:build:css']).on('change', logFileChange);
   gulp.watch(normalizePath(getConfig().js.source), ['serve:reload:build:js']).on('change', logFileChange);
   gulp.watch(normalizePath(getConfig().html.source), ['serve:reload:build:html']).on('change', logFileChange);
@@ -181,4 +218,4 @@ gulp.task('watch:build', ['build'], function () {
   });
 });
 
-gulp.task('watch:serve', ['build', 'serve', 'watch:build']);
+gulpFunctions.register('watch:serve', ['build', 'serve', 'watch:build']);

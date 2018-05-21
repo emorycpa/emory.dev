@@ -73,7 +73,7 @@ Inside `templates/partials/`:
 
 Inside the `scss/` directory:
 
-* `abstracts/` - Sass functions, mixins, variables, animations, and font declarations
+* `abstracts/` - Sass functions, mixins, variables, animations, browser hacks, and font declarations
 * `base/` - Rules that apply sitewide. Accessibility, custom helper classes, typography, WYSIWYG
 * `components/` - Individual component rules for headers, footers, and custom widgets. Add new components as needed
 * `vendor/` - Third-party stylesheets

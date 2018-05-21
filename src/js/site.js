@@ -29,7 +29,7 @@
         } else {
             $dropdownToggles.removeAttr("role data-toggle aria-haspopup aria-expanded");
         }
-    }
+    };
 
     //scrollFn
     const scrollFn = function () {
@@ -48,7 +48,7 @@
         $body.css("padding-top", $siteHeader.height());
         //Detect screen width and activate header nav dropdowns accordingly
         activateDropdownsFn();
-    }
+    };
 
     //Setup listeners
     $doc.scroll(function () {

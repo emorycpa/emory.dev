@@ -1,10 +1,25 @@
-@mixin heading {
-    font-family:$spectral;
-    line-height:1.1em;
+// Body text
+@mixin body-font {
+	font-family: $body-font;
+	font-weight: $font-weight-base;
+	text-transform: none;
+	letter-spacing: normal;
 }
 
+// Primary Heading
+@mixin heading {
+	font-family: $spectral;
+	font-weight: 700;
+	text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.1em;
+}
+
+// Secondary Heading
 @mixin subheading {
-    font-family:$barlow-condensed;
-    line-height:1.1em;
-    text-transform:uppercase;
+	font-family: $barlow-condensed;
+	font-weight: 600;
+	text-transform: uppercase;
+    letter-spacing: .05em;
+    line-height: 1.1em;
 }

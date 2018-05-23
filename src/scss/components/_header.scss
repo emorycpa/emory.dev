@@ -4,4 +4,11 @@
     &.scroll {
         
     }
+
+    // Remove dropdown menu arrows on XS-MD viewports
+    @include media-breakpoint-between(xs,md) {
+        .dropdown-toggle::after {
+            content: none;
+        }
+    }
 }

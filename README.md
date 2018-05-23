@@ -6,7 +6,7 @@ These instructions will get you a copy of the starer kit up and running on your 
 
 Be sure to have the following installed:
 
-* [Node.js](https://nodejs.org/en/download/)
+* [Node.js](https://nodejs.org/en/download/current/)
 * [Git](https://git-scm.com/downloads)
 * [Visual Studio Code](https://code.visualstudio.com/download)
 

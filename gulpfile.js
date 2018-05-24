@@ -15,7 +15,8 @@ var
   uglify = require('gulp-uglify'),
   nunjucks = require('gulp-nunjucks-render'),
   tap = require('gulp-tap'),
-  ts = require('gulp-typescript');
+  ts = require('gulp-typescript'),
+  chokidar = require('chokidar');
 
 //Load Configuration 
 var config = require('./build-config.json');
@@ -31,6 +32,7 @@ function error() {
 
 function logging() {
   console.log(chalk.bold.apply(this, arguments));
+  console.log(arguments);
   return null;
 }
 
@@ -58,7 +60,7 @@ function handleError(err) {
 }
 
 function logFileChange(event) {
-  logging('File ' + event.path + ' was ' + event.type + ', running tasks...');
+  logging('File ' + event.path ? event.path : event + ' was changed, running tasks...');
 }
 
 GulpFunctions = function(){
@@ -177,12 +179,13 @@ getConfig().static.forEach(function (staticResource) {
   buildtasks.push('build:' + staticResource.task);
 });
 
-gulpFunctions.register('build', buildtasks, function () {
+gulpFunctions.register('build', buildtasks, function (done) {
   logging("Build done: " + new Date());
-  return gulp.src(normalizePath(getConfig().browserSync.directory));
+  done();
+  //return gulp.src(normalizePath(getConfig().browserSync.directory));
 });
 
-gulpFunctions.register('serve', ['build'], function () {
+gulpFunctions.register('serve', null, function (done) {
   if (getConfig().browserSync.enabled) {
     browserSync.init({
       server: {
@@ -191,6 +194,7 @@ gulpFunctions.register('serve', ['build'], function () {
       }
     });
   }
+  done();
 });
 
 gulpFunctions.register('serve:reload', function reload(done) {
@@ -199,23 +203,88 @@ gulpFunctions.register('serve:reload', function reload(done) {
 });
 
 buildtasks.forEach(function (taskName) {
-  gulpFunctions.register('serve:reload:' + taskName, [taskName], function (done) {
+  gulpFunctions.register('serve:reload:' + taskName, [taskName], function reload(done) {
     browserSync.reload();
     done();
   })
 });
 
-gulpFunctions.register('watch:build', ['build'], function () {
-  gulp.watch(normalizePath(getConfig().css.source), ['serve:reload:build:css']).on('change', logFileChange);
-  gulp.watch(normalizePath(getConfig().js.source), ['serve:reload:build:js']).on('change', logFileChange);
-  gulp.watch(normalizePath(getConfig().html.source), ['serve:reload:build:html']).on('change', logFileChange);
-  if (getConfig().html.templateEngine != false && getConfig().html.templates != '') {
-    gulp.watch(normalizePath(getConfig().html.templates + '/**/*.*'), ['serve:reload:build:html']).on('change', logFileChange);
-  }
+gulpFunctions.register('watch:build', 
+// ['build'], 
+// // null,
 
-  getConfig().static.forEach(function (staticResource) {
-    gulp.watch(normalizePath(staticResource.source), ['serve:reload:build:' + staticResource.task]).on('change', logFileChange);
-  });
+function (done) {
+  console.log("----------");
+  // console.log([normalizePath(getConfig().css.source)]);
+  // console.log(gulp.watch(['**/*.*']).getWatched());
+  
+  
+   
+  if(gulp.series){
+    chokidar.watch([normalizePath(getConfig().css.source)]).on('all', (event, path) => {
+      //console.log(event, path);
+      if(event === 'add'){
+        console.log("Added "+path+" to watch.");
+      }
+      if(event === 'change'){
+        gulp.task("serve:reload:build:css")();
+      }
+    });
+    chokidar.watch([normalizePath(getConfig().js.source)]).on('all', (event, path) => {
+      //console.log(event, path);
+      if(event === 'add'){
+        console.log("Added "+path+" to watch.");
+      }
+      if(event === 'change'){
+        gulp.task("serve:reload:build:js")();
+      }
+    });
+    chokidar.watch([normalizePath(getConfig().html.source)]).on('all', (event, path) => {
+      //console.log(event, path);
+      if(event === 'add'){
+        console.log("Added "+path+" to watch.");
+      }
+      if(event === 'change'){
+        gulp.task("serve:reload:build:html")();
+      }
+    });
+    if (getConfig().html.templateEngine != false && getConfig().html.templates != '') {
+      chokidar.watch([normalizePath(getConfig().html.templates + '/**/*.*')]).on('all', (event, path) => {
+        //console.log(event, path);
+        if(event === 'add'){
+          console.log("Added "+path+" to watch.");
+        }
+        if(event === 'change'){
+          gulp.task("serve:reload:build:html")();
+        }
+      });
+    }
+    getConfig().static.forEach(function (staticResource) {
+      //console.log(staticResource);
+      chokidar.watch([normalizePath(staticResource.source)]).on('all', (event, path) => {
+        //console.log(event, path);
+        if(event === 'add'){
+          console.log("Added "+path+" to watch.");
+        }
+        if(event === 'change'){
+          gulp.task('serve:reload:build:' + staticResource.task)();
+        }
+      });
+      gulp.watch(normalizePath(staticResource.source), gulp.series('serve:reload:build:' + staticResource.task)).on('change', logFileChange);
+    });
+  } else {
+    gulp.watch(normalizePath(getConfig().css.source), ['serve:reload:build:css']).on('change', logFileChange);
+    gulp.watch(normalizePath(getConfig().js.source), ['serve:reload:build:js']).on('change', logFileChange);
+    gulp.watch(normalizePath(getConfig().html.source), ['serve:reload:build:html']).on('change', logFileChange);
+    if (getConfig().html.templateEngine != false && getConfig().html.templates != '') {
+      gulp.watch(normalizePath(getConfig().html.templates + '/**/*.*'), ['serve:reload:build:html']).on('change', logFileChange);
+    }
+
+    getConfig().static.forEach(function (staticResource) {
+      gulp.watch(normalizePath(staticResource.source), ['serve:reload:build:' + staticResource.task]).on('change', logFileChange);
+    });
+  }
+  // done();
 });
 
 gulpFunctions.register('watch:serve', ['build', 'serve', 'watch:build']);

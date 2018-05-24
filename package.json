@@ -4,10 +4,10 @@
   "description": "Front-end framework for Emory University website",
   "main": "gulpfile.js",
   "dependencies": {
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^autoprefixer",
     "bootstrap": "^4.1.0",
-    "browser-sync": "^2.23.6",
-    "chalk": "^2.3.1",
+    "browser-sync": "^2.24.4",
+    "chalk": "^2.4.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-clean": "^0.4.0",
     "gulp-cli": "^2.0.1",
@@ -16,14 +16,14 @@
     "gulp-if": "^2.0.2",
     "gulp-nunjucks-render": "^2.2.2",
     "gulp-postcss": "^7.0.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
+    "gulp-rename": "^1.2.3",
+    "gulp-sass": "^4.0.1",
     "gulp-tap": "^1.0.1",
-    "gulp-typescript": "^3.2.2",
+    "gulp-typescript": "^4.0.2",
     "gulp-uglify": "^3.0.0",
     "jquery": "^3.3.1",
-    "popper.js": "^1.12.9",
-    "typescript": "^2.5.2"
+    "popper.js": "^1.14.3",
+    "typescript": "^2.8.3"
   },
   "browserslist": [
     "last 1 major version",

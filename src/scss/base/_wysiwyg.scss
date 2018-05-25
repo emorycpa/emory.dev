@@ -11,8 +11,8 @@
     }
     blockquote {
         font-style: italic;
-        margin-left: calc( #{$grid-gutter-width} /2 );
         margin-bottom: 1rem;
+        margin-left: calc( #{$grid-gutter-width} /2 );
         padding-left: calc( (#{$grid-gutter-width} /2) - 3px );
         border-left: 3px solid $gray-200;
     }

@@ -1,18 +1,18 @@
 /*
- * ASPECT RATIO PLACEHOLDER
+ * STANDARD ASPECT RATIO PLACEHOLDERS
  * Apply to parent container, then
  * add class .ratio-content to child
 */
 
-.ratio-21by9 {
+.ratio-21by9 { // Ultrawide
     @include aspect-ratio(21,9);
 }
-.ratio-16by9 {
+.ratio-16by9 { // Standard photo
     @include aspect-ratio(16,9);
 }
-.ratio-4by3 {
+.ratio-4by3 { // Old monitors
     @include aspect-ratio(4,3);
 }
-.ratio-1by1 {
+.ratio-1by1 { // Square
     @include aspect-ratio(1,1);
 }

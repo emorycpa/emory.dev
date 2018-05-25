@@ -24,6 +24,16 @@
     line-height: 1.1em;
 }
 
+// Font-face
+@mixin font-face($name, $file, $weight: 400, $style: normal) {
+	@font-face {
+	  font-family: "#{$name}";
+	  src: url('../fonts/#{$file}.woff') format('woff');
+	  font-weight: $weight;
+	  font-style: $style;
+	}
+}
+
 /***************************************
  * HELPFUL MIXINS
  * Delete any of these that are not

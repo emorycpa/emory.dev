@@ -10,14 +10,21 @@
         @include subheading;
     }
     blockquote {
-        font-style:italic;
-        margin-left:$grid-gutter-width;
+        font-style: italic;
+        margin-left: calc( #{$grid-gutter-width} /2 );
+        margin-bottom: 1rem;
+        padding-left: calc( (#{$grid-gutter-width} /2) - 3px );
+        border-left: 3px solid $gray-200;
+    }
+    strong,
+    b {
+        font-weight: 700;
     }
     a {
-        text-decoration:underline; // Accessibility
+        text-decoration: underline; // Accessibility
         &:hover,
         &:focus {
-            text-decoration:none;
+            text-decoration: none;
         }
     }
 }

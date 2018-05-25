@@ -52,8 +52,10 @@
 
 /*
  * 2X SIZE BACKGROUND IMAGE FOR "RETINA" DISPLAY
- * For $width and $height, enter base size of
- * background image in the template.
+ * For $image, link a version that is double the
+ * base resolution. For $width and $height, 
+ * enter base resolution of background image or
+ * use another propery like "cover" or "contain"
 */
 
 @mixin retina-image($image, $width: null, $height: null) {

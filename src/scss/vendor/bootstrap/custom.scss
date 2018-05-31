@@ -6,37 +6,37 @@
 @import "variables";
 @import "utilities";
 
-@import "node_modules/bootstrap/scss/alert";
-@import "node_modules/bootstrap/scss/badge";
-@import "node_modules/bootstrap/scss/breadcrumb";
-@import "node_modules/bootstrap/scss/button-group";
-@import "node_modules/bootstrap/scss/buttons";
-@import "node_modules/bootstrap/scss/card";
-@import "node_modules/bootstrap/scss/carousel";
-@import "node_modules/bootstrap/scss/close";
-@import "node_modules/bootstrap/scss/code";
-@import "node_modules/bootstrap/scss/custom-forms";
-@import "node_modules/bootstrap/scss/dropdown";
-@import "node_modules/bootstrap/scss/forms";
-@import "node_modules/bootstrap/scss/grid";
-@import "node_modules/bootstrap/scss/images";
-@import "node_modules/bootstrap/scss/input-group";
-@import "node_modules/bootstrap/scss/jumbotron";
-@import "node_modules/bootstrap/scss/list-group";
-@import "node_modules/bootstrap/scss/media";
-@import "node_modules/bootstrap/scss/modal";
-@import "node_modules/bootstrap/scss/nav";
-@import "node_modules/bootstrap/scss/navbar";
-@import "node_modules/bootstrap/scss/pagination";
-@import "node_modules/bootstrap/scss/popover";
-@import "node_modules/bootstrap/scss/print";
-@import "node_modules/bootstrap/scss/progress";
-@import "node_modules/bootstrap/scss/reboot";
+@import "node_modules/bootstrap/scss/alert";        // https://getbootstrap.com/docs/4.1/components/alerts/
+@import "node_modules/bootstrap/scss/badge";        // https://getbootstrap.com/docs/4.1/components/badge/
+@import "node_modules/bootstrap/scss/breadcrumb";   // https://getbootstrap.com/docs/4.1/components/breadcrumb/
+@import "node_modules/bootstrap/scss/button-group"; // https://getbootstrap.com/docs/4.1/components/button-group/
+@import "node_modules/bootstrap/scss/buttons";      // https://getbootstrap.com/docs/4.1/components/buttons/
+@import "node_modules/bootstrap/scss/card";         // https://getbootstrap.com/docs/4.1/components/card/
+@import "node_modules/bootstrap/scss/carousel";     // https://getbootstrap.com/docs/4.1/components/carousel/
+@import "node_modules/bootstrap/scss/close";        // https://getbootstrap.com/docs/4.1/utilities/close-icon/
+@import "node_modules/bootstrap/scss/code";         // https://getbootstrap.com/docs/4.1/content/code/
+@import "node_modules/bootstrap/scss/custom-forms"; // https://getbootstrap.com/docs/4.1/components/input-group/#custom-forms
+@import "node_modules/bootstrap/scss/dropdown";     // https://getbootstrap.com/docs/4.1/components/dropdowns/
+@import "node_modules/bootstrap/scss/forms";        // https://getbootstrap.com/docs/4.1/components/forms/
+@import "node_modules/bootstrap/scss/grid";         // https://getbootstrap.com/docs/4.1/layout/grid/
+@import "node_modules/bootstrap/scss/images";       // https://getbootstrap.com/docs/4.1/content/images/
+@import "node_modules/bootstrap/scss/input-group";  // https://getbootstrap.com/docs/4.1/components/input-group/
+@import "node_modules/bootstrap/scss/jumbotron";    // https://getbootstrap.com/docs/4.1/components/jumbotron/
+@import "node_modules/bootstrap/scss/list-group";   // https://getbootstrap.com/docs/4.1/components/list-group/
+@import "node_modules/bootstrap/scss/media";        // https://getbootstrap.com/docs/4.1/layout/media-object/
+@import "node_modules/bootstrap/scss/modal";        // https://getbootstrap.com/docs/4.1/components/modal/
+@import "node_modules/bootstrap/scss/nav";          // https://getbootstrap.com/docs/4.1/components/navs/
+@import "node_modules/bootstrap/scss/navbar";       // https://getbootstrap.com/docs/4.1/components/navbar/
+@import "node_modules/bootstrap/scss/pagination";   // https://getbootstrap.com/docs/4.1/components/pagination/
+@import "node_modules/bootstrap/scss/popover";      // https://getbootstrap.com/docs/4.1/components/popovers/
+@import "node_modules/bootstrap/scss/print";        // https://getbootstrap.com/docs/4.1/utilities/display/#display-in-print
+@import "node_modules/bootstrap/scss/progress";     // https://getbootstrap.com/docs/4.1/components/progress/
+@import "node_modules/bootstrap/scss/reboot";       // https://getbootstrap.com/docs/4.1/content/reboot/
 //@import "node_modules/bootstrap/scss/root";
-@import "node_modules/bootstrap/scss/tables";
-@import "node_modules/bootstrap/scss/tooltip";
+@import "node_modules/bootstrap/scss/tables";       // https://getbootstrap.com/docs/4.1/content/tables/
+@import "node_modules/bootstrap/scss/tooltip";      // https://getbootstrap.com/docs/4.1/components/tooltips/
 @import "node_modules/bootstrap/scss/transitions";
-@import "node_modules/bootstrap/scss/type";
+@import "node_modules/bootstrap/scss/type";         // https://getbootstrap.com/docs/4.1/content/typography/
 
 // BOOTSTRAP ALL - ONLY use for testing purposes
 //@import "node_modules/bootstrap/scss/bootstrap";

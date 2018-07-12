@@ -1,4 +1,4 @@
-# Emory University - Dev Starter Kit
+# Emory University - Standalone Website - Dev Starter Kit
 
 These instructions will get you a copy of the starer kit up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -46,6 +46,7 @@ All development, code, and markup modification should occur inside the `src/` di
 Inside the `src/` directory:
 
 * `fonts/` - Webfonts
+* `images/` - Images & Graphics
 * `js/` - Javascript
 * `njk/` - Nunjucks (HTML)
 * `scss/` - Sass (CSS)
@@ -57,16 +58,16 @@ Inside the `njk/` directory:
 * `pages/` - All generic page layouts and types
 * `templates/` - Small bits of markup that are put together to form entire pages
 
-Inside the `templates/` directory is the *layout.njk* file. This determines general structure of every page.
+Inside `templates/`:
+* *layout.njk* - Determines general page settings and layout structure for all pages
+* *macros.njk* - Blocks of content that can be quickly added and customized into templates. Good for preserving consistency across components that are used many times over
+* *variables.njk* - Snippets of information that can be called to populate templates or change template conditions
 
-A majority of the development will occur inside the `templates/partials/` directory. By default, several generic folders and files already exist to give a headstart. This structure can be changed to accommodate the project's needs, but consistency among all Emory project templates is important.
+A majority of the development will occur inside the `templates/partials/` directory. By default, several generic folders and files already exist to give a headstart. Feel free to create additional directories to accommodate the project's needs.
 
 Inside `templates/partials/`:
 
 * `global/` - Components that occur across every webpage such as the header and footer
-* `snippet/` - Small blocks of standalone markup, such as blockquotes or lists
-* `component/` - Complete items such as Carousels or Modals which may contain several Snippets
-* `section/` - Large blocks of content that builds out a section of a page which may contain several Components or Snippets
 * `wysiwyg/` - Small bits of placeholder markup used specifically for populating generic content into WYSIWYG areas in the template
 
 ### Understanding the SASS structure

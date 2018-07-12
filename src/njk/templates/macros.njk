@@ -1,0 +1,16 @@
+{# Placeholder image #}
+{% macro img(
+    imgSize, 
+    imgClass, 
+    imgColor='0d7cba', 
+    imgTextColor='ffffff') %}
+<img src="https://placehold.it/{{ imgSize }}/{{ imgColor }}/{{ imgTextColor }}" alt="Placeholder" class="{{ imgClass }}" />
+{% endmacro %}
+
+{# Bootstrap button text link #}
+{% macro btn(
+    btnText='Learn More', 
+    btnClass='btn-primary',
+    btnURL='#') %}
+<a href="{{ btnURL }}" class="btn {{ btnClass }}">{{ btnText }}</a>
+{% endmacro %}

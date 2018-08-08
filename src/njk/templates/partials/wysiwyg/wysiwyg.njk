@@ -8,6 +8,9 @@
     
     <h4>Heading 4</h4>
     <p>WYSIWYG content should never contain a <code>&lt;h1&gt;</code>.</p>
+    <p>{{ var.sentenceSM }} <small class="font-italic">({{ var.sentenceSM | wordcount }} words)</small></p>
+    <p>{{ var.sentenceMD }} <small class="font-italic">({{ var.sentenceMD | wordcount }} words)</small></p>
+    <p>{{ var.sentenceLGlinks | safe }} <small class="font-italic">({{ var.sentenceLG | wordcount }} words)</small></p>
     <hr>
 
     <div class="row">

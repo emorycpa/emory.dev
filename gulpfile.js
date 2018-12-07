@@ -17,12 +17,14 @@ var
   tap = require('gulp-tap'),
   ts = require('gulp-typescript'),
   chokidar = require('chokidar');
+  debug = require('gulp-debug');
 
 //Load Configuration 
 var config = require('./build-config.json');
 
 //Setup variables
 var buildtasks = ['build:css', 'build:js', 'build:html'];
+var staticResourceTasks = [];
 
 //Create global functions
 function error() {
@@ -97,6 +99,28 @@ GulpFunctions.prototype.register = function(name, dependencies, fn){
 
 var gulpFunctions = new GulpFunctions();
 
+// Setup static files
+getConfig().static.forEach(function (staticResource) {
+
+  gulpFunctions.register('build:clean:' + staticResource.task, null, function () {
+    return gulp.src(normalizePath(staticResource.build + '*'))
+      .pipe(clean());
+  });
+
+
+  gulpFunctions.register('build:' + staticResource.task, ['build:clean:' + staticResource.task], function () {
+    gulp.src(normalizePath(staticResource.source)).pipe(debug());
+    return gulp.src(normalizePath(staticResource.source))
+      .on("error", handleError)
+      .pipe(debug())
+      .pipe(gulp.dest(normalizePath(staticResource.build)))
+      .on("error", handleError)
+      .pipe(debug());
+  });
+  buildtasks.push('build:' + staticResource.task);
+  staticResourceTasks.push('build:' + staticResource.task);
+});
+
 //Build dynamic clean functions
 gulpFunctions.register('build:clean:css', null, function () {
   return gulp.src(normalizePath(getConfig().css.build + '*'))
@@ -126,10 +150,15 @@ gulpFunctions.register('build:css', ['build:clean:css'], function () {
     }))
     .pipe(gulpif(getConfig().css.concat, concat('site.css')))
     .pipe(gulp.dest(normalizePath(getConfig().css.build)))
+    .pipe(rename({
+      suffix: '.min'
+    }))
+    .pipe(cssmin())
+    .pipe(gulp.dest(normalizePath(getConfig().css.build)))
     .on("error", handleError);
 });
 
-gulpFunctions.register('build:js', ['build:clean:js'], function () {
+gulpFunctions.register('build:js', (function(){ return ['build:clean:js'].concat(staticResourceTasks)})(), function () {
   return gulp.src(normalizePath(getConfig().js.source))
     .on("error", handleError)
     .pipe(gulpif(getConfig().js.jsPreprocessor === 'ts', ts()))
@@ -161,23 +190,7 @@ gulpFunctions.register('build:html', ['build:clean:html'], function () {
     .on("error", handleError);
 });
 
-// Setup static files
-getConfig().static.forEach(function (staticResource) {
 
-  gulpFunctions.register('build:clean:' + staticResource.task, null, function () {
-    return gulp.src(normalizePath(staticResource.build + '*'))
-      .pipe(clean());
-  });
-
-
-  gulpFunctions.register('build:' + staticResource.task, ['build:clean:' + staticResource.task], function () {
-    return gulp.src(normalizePath(staticResource.source))
-      .on("error", handleError)
-      .pipe(gulp.dest(normalizePath(staticResource.build)))
-      .on("error", handleError);
-  });
-  buildtasks.push('build:' + staticResource.task);
-});
 
 gulpFunctions.register('build', buildtasks, function (done) {
   logging("Build done: " + new Date());

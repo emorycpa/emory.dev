@@ -6,11 +6,3 @@
     imgTextColor='ffffff') %}
 <img src="https://placehold.it/{{ imgSize }}/{{ imgColor }}/{{ imgTextColor }}" alt="{{ imgSize }} placeholder" class="{{ imgClass }}" />
 {% endmacro %}
-
-{# Bootstrap button text link #}
-{% macro btn(
-    btnText='Learn More', 
-    btnClass='btn-primary',
-    btnURL='#') %}
-<a href="{{ btnURL }}" class="btn {{ btnClass }}">{{ btnText }}</a>
-{% endmacro %}

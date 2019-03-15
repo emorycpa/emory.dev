@@ -1,16 +1,15 @@
 const buildConfig = require('./build-config.json');
-const serveTasks = require('./util/serve');
-const cssTasks = require('./util/css');
-const jsTasks = require('./util/js');
-const htmlTasks = require('./util/html');
-const staticTasks = require('./util/static');
-const gulpFunctions = require('./util/gulpFunctions');
 
-serveTasks(buildConfig);
-cssTasks(buildConfig);
-jsTasks(buildConfig);
-htmlTasks(buildConfig);
-staticTasks(buildConfig);
+const {bootstrap, serve, css, js, html, static, gulpFn} = require('edu.emory.build-system');
+
+// Setup tasks
+serve(buildConfig);
+css(buildConfig);
+js(buildConfig);
+html(buildConfig);
+static(buildConfig);
+
+// Setup composite tasks
 const buildTasks = ['build:css','build:js', 'build:html'];
 const watchTasks = ['watch:serve:build:css','watch:serve:build:js', 'watch:serve:build:html'];
 
@@ -19,8 +18,10 @@ buildConfig.static.forEach(function (staticResource) {
     watchTasks.push('watch:serve:build:' + staticResource.task);
 });
 
-gulpFunctions.register('build', buildTasks , function fullBuildFn (done){done()});
+gulpFn.register('bootstrap', null, bootstrap);
 
-gulpFunctions.register('watch', watchTasks , function fullWatchFn (done){done()});
+gulpFn.register('build', buildTasks , function fullBuildFn (done){done()});
 
-gulpFunctions.register('default', ['build', 'serve', 'watch'], function buildWatchServeFn (done){done()});
+gulpFn.register('watch', watchTasks , function fullWatchFn (done){done()});
+
+gulpFn.register('default', ['build', 'serve', 'watch'], function buildWatchServeFn (done){done()});

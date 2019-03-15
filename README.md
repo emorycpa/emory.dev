@@ -91,7 +91,7 @@ npm i
 Then once all Node modules are installed, run:
 
 ```
-gulp watch:serve
+gulp
 ```
 
 This will launch a page in your default browser on localhost:3000.
